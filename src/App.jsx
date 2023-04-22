@@ -1,5 +1,27 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  createRoutesFromElements,
+} from "react-router-dom";
+import Activities from "./pages/Activities";
+import Admin from "./pages/Admin";
+import Homepage from "./pages/Homepage";
+import AppShell from "./components/Appshell";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<AppShell />}>
+        <Route index element={<Homepage />} />
+        <Route path="Activities" element={<Activities />} />
+        <Route path="Admin" element={<Admin />} />
+      </Route>
+    </>
+  )
+);
 
 function App() {
   const [banners, setBanners] = useState([]);
@@ -30,16 +52,7 @@ function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      {items}
+      <RouterProvider router={router} />
     </>
   );
 }
