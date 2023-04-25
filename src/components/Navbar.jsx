@@ -48,31 +48,25 @@ function Navbar() {
 
   return (
     <>
-      <Nav
-        className="navbar-beg"
-        onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-      >
+      <Nav className="navbar-beg">
         <Nav.Item>
           <Nav.Link href="/" className="a-navbar">
             Homepage
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-1" className="a-navbar">
+          <Nav.Link href="/Activities" className="a-navbar">
             Activities
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2" className="a-navbar">
+          <Nav.Link href="/Admin" className="a-navbar">
             Admin
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item></Nav.Item>
-        <div className="btn-sign">
-          <Button variant="primary" onClick={signOut}>
-            Sign Up
-          </Button>
-        </div>
+        <Button className="sign-in-btn" variant="danger" onClick={signOut}>
+          Sign Up
+        </Button>
       </Nav>
     </>
   );

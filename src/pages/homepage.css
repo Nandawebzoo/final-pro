@@ -1,4 +1,28 @@
 .hero {
-    background-image: url(/public/img/bg_1.jpg.webp) ;
-    height: 685px;
+    background-image: url(/public/img/bg_1.jpg.webp);
+    height: 785px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.hero .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero .container .input-group {
+    max-width: 400px;
+    height: 64px;
+}
+
+.hero-text {
+    color: #fff;
+}
+.hero-text h1 {
+    font-weight: bold;
+    font-size: 60px;
 }
