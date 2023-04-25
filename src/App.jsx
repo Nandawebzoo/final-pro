@@ -10,6 +10,7 @@ import Activities from "./pages/Activities";
 import Admin from "./pages/Admin";
 import Homepage from "./pages/Homepage";
 import AppShell from "./components/Appshell";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

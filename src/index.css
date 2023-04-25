@@ -1,0 +1,28 @@
+
+
+.navbar-beg {
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    left: 25rem;
+    top: 20px;
+}
+
+.a-navbar {
+    color: #fff;
+}
+
+.btn-sign {
+    justify-content: left;
+    margin-left: 30rem;
+}
+
+.form-control{
+    display: flex;
+    width: 500px;
+}
+
+.btn-search {
+    margin-left: 1rem;
+}
+

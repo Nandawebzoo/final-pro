@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
 import axios from "axios";
+import { NavbarBrand } from "react-bootstrap";
 
 function Navbar() {
   async function signIn() {
@@ -47,34 +48,37 @@ function Navbar() {
 
   return (
     <>
-      <BootstrapNavbar bg="light" expand="lg">
-        <Container>
-          <BootstrapNavbar.Brand href="/">
-            <img src="img/logo.png" alt="moveflix" />
-          </BootstrapNavbar.Brand>
-          <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
-          <BootstrapNavbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <LinkContainer to="/" relative="path">
-                <Nav.Link>Home</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/Activities" relative="path">
-                <Nav.Link>Activities</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/Admin" relative="path">
-                <Nav.Link>Admin</Nav.Link>
-              </LinkContainer>
-            </Nav>
-            <Form className="d-flex btn-search">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-1"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-            {/* {session?.userDetails.avatar.tmdb.avatar_path && (
+      <Nav
+        className="navbar-beg"
+        onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+      >
+        <Nav.Item>
+          <Nav.Link href="/" className="a-navbar">
+            Homepage
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1" className="a-navbar">
+            Activities
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2" className="a-navbar">
+            Admin
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item></Nav.Item>
+        <div className="btn-sign">
+          <Button variant="primary" onClick={signOut}>
+            Sign Up
+          </Button>
+        </div>
+      </Nav>
+    </>
+  );
+}
+
+/* {session?.userDetails.avatar.tmdb.avatar_path && (
               <img
                 title={session.userDetails.username}
                 src={`https://image.tmdb.org/t/p/w500${session.userDetails.avatar.tmdb.avatar_path}`}
@@ -89,12 +93,9 @@ function Navbar() {
               <Button className="btn-sign" variant="primary" onClick={signIn}>
                 Sign In
               </Button>
-            )} */}
-          </BootstrapNavbar.Collapse>
-        </Container>
-      </BootstrapNavbar>
-    </>
-  );
-}
+            )} 
+    
+            
+}*/
 
 export default Navbar;
