@@ -26,6 +26,7 @@ const router = createBrowserRouter(
 
 function App() {
   const [banners, setBanners] = useState([]);
+
   useEffect(() => {
     const fetchBanner = async () => {
       const response = await axios.get(
@@ -37,23 +38,25 @@ function App() {
         }
       );
 
-      console.log(response);
       setBanners(response.data.data);
     };
 
     fetchBanner();
   }, []);
 
-  const items = banners.map((banner) => (
-    <div key={banner.id} className="item" data-value={banner.id}>
-      <img src={`${banner.imageUrl}`} alt={banner.name} className="poster" />
-      <h2 className="title">{banner.name}</h2>
-    </div>
-  ));
-
   return (
     <>
       <RouterProvider router={router} />
+      {/* {banners.map((banner) => (
+        <div key={banner.id} className="item" data-value={banner.id}>
+          <img
+            src={`${banner.imageUrl}`}
+            alt={banner.name}
+            className="poster"
+          />
+          <h2 className="title">{banner.name}</h2>
+        </div>
+      ))} */}
     </>
   );
 }

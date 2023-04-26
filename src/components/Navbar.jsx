@@ -1,12 +1,7 @@
-import React, { useContext } from "react";
-import Container from "react-bootstrap/Container";
+import React from "react";
 import Nav from "react-bootstrap/Nav";
-import BootstrapNavbar from "react-bootstrap/Navbar";
-import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { LinkContainer } from "react-router-bootstrap";
 import axios from "axios";
-import { NavbarBrand } from "react-bootstrap";
 
 function Navbar() {
   async function signIn() {

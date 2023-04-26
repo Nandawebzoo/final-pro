@@ -8,6 +8,7 @@ import {
   InputGroup,
 } from "react-bootstrap";
 import Badges from "../components/Badges";
+import Promos from "../components/Promos";
 
 function Homepage() {
   return (
@@ -33,6 +34,7 @@ function Homepage() {
         </Container>
       </div>
       <Badges />
+      <Promos />
     </>
   );
 }
