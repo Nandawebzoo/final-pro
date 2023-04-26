@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Promos() {
-  const [promos, setPromos] = useState([]);
+  const [promos, setPromos] = useState([]); // There is useState to store promos array
 
   useEffect(() => {
+    // Use useEffect to get data from the API
     const fetchPromos = async () => {
       const response = await axios.get(
         `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/promos`,
@@ -17,11 +18,11 @@ function Promos() {
         }
       );
 
-      setPromos(response.data.data);
+      setPromos(response.data.data); // set the data and store it in the state
     };
 
     fetchPromos(); // Execute or run the function
-  }, []);
+  }, []); // Empty array of dependencies means the function will run only after the initial render / on component load
 
   return (
     <Container>
