@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import Badges from "../components/Badges";
 import Promos from "../components/Promos";
+import Categories from "../components/Categories";
 
 function Homepage() {
   return (
@@ -35,6 +36,7 @@ function Homepage() {
       </div>
       <Badges />
       <Promos />
+      <Categories />
     </>
   );
 }
