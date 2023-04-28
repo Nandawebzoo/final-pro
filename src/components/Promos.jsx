@@ -1,14 +1,15 @@
 import React from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Card, Container, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import "./promos.css";
 
 const responsive = {
-  0: { items: 3 },
-  568: { items: 5 },
-  1024: { items: 8 },
+  0: { items: 1 },
+  568: { items: 2 },
+  1024: { items: 4 },
 };
 
 function Promos() {
@@ -30,10 +31,10 @@ function Promos() {
     };
 
     fetchPromos(); // Execute or run the function
-  }, []); // Empty array of dependencies means the function will run only after the initial render / on component load
+  }, []); // Empty array of dependencies means the function will run on the initial render / on component load
 
   const items = promos.map((item) => (
-    <Card key={item.id} style={{ width: "18rem" }}>
+    <Card key={item.id} className="item-promo">
       <Card.Img variant="top" src={item.imageUrl} />
       <Card.Body>
         <Card.Title>{item.title}</Card.Title>
@@ -54,7 +55,7 @@ function Promos() {
         items={items}
         responsive={responsive}
         controlsStrategy="responsive"
-        autoPlayInterval="1000"
+        autoPlayInterval="2000"
         autoPlay
         disableButtonsControls
         infinite
