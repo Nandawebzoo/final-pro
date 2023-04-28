@@ -49,7 +49,7 @@ function Hero() {
         </div>
         <InputGroup>
           <Form.Select onChange={(e) => setCategory(e.target.value)}>
-            <option>Find Activities</option>
+            <option>Select Category</option>
             {categories.map((category) => (
               <option value={category.id} key={category.id}>
                 {category.name}

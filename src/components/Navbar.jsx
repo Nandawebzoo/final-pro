@@ -50,12 +50,12 @@ function Navbar() {
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/Activities" className="a-navbar">
+          <Nav.Link href="/activities" className="a-navbar">
             Activities
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/Admin" className="a-navbar">
+          <Nav.Link href="/admin" className="a-navbar">
             Admin
           </Nav.Link>
         </Nav.Item>
