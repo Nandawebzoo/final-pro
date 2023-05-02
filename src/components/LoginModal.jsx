@@ -1,8 +1,8 @@
 import React from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Form, InputGroup } from "react-bootstrap";
 
 function LoginModal({ show, onHide }) {
-  async function signIn() {
+  async function logIn() {
     try {
       // Get request token
       const response = await axios.get(
@@ -42,15 +42,29 @@ function LoginModal({ show, onHide }) {
   return (
     <>
       <Modal show={show} onHide={() => onHide()} className="movie-modal">
+        <Modal.Header closeButton>
+          <Modal.Title>Login</Modal.Title>
+        </Modal.Header>
         <Modal.Body>
-          <button
-            type="button"
-            className="btn-close"
-            onClick={() => onHide()}
-            aria-label="Close"
-          />
-          Login
+          <Form>
+            <Form.Label htmlFor="email">Email</Form.Label>
+            <InputGroup className="mb-3">
+              <Form.Control type="email" id="email" />
+            </InputGroup>
+            <Form.Label htmlFor="password">Password</Form.Label>
+            <InputGroup className="mb-3">
+              <Form.Control type="password" id="password" />
+            </InputGroup>
+          </Form>
         </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => onHide()}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => logIn()}>
+            Log In
+          </Button>
+        </Modal.Footer>
       </Modal>
     </>
   );
