@@ -30,9 +30,11 @@ function Navbar() {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/admin" className="a-navbar">
-                Admin
-              </Nav.Link>
+              {session !== null && session.userDetails.role === "admin" && (
+                <Nav.Link href="/admin" className="a-navbar">
+                  Admin
+                </Nav.Link>
+              )}
             </Nav.Item>
           </Nav>
         </div>
