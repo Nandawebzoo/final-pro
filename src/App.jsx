@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import axios from "axios";
 import {
   createBrowserRouter,
@@ -11,6 +11,8 @@ import Admin from "./pages/Admin";
 import Homepage from "./pages/Homepage";
 import AppShell from "./components/Appshell";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+export const SessionContext = createContext(null);
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,38 +27,38 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  const [banners, setBanners] = useState([]);
+  const [session, setSession] = useState(null);
 
   useEffect(() => {
-    const fetchBanner = async () => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      getUserDetails(token);
+    }
+  }, []);
+
+  async function getUserDetails(token) {
+    try {
       const response = await axios.get(
-        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/banners`,
+        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/user`,
         {
           headers: {
-            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            apiKey: import.meta.env.VITE_API_KEY,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
-
-      setBanners(response.data.data);
-    };
-
-    fetchBanner();
-  }, []);
-
+      const userDetails = response.data.data;
+      setSession({ token, userDetails });
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <>
-      <RouterProvider router={router} />
-      {/* {banners.map((banner) => (
-        <div key={banner.id} className="item" data-value={banner.id}>
-          <img
-            src={`${banner.imageUrl}`}
-            alt={banner.name}
-            className="poster"
-          />
-          <h2 className="title">{banner.name}</h2>
-        </div>
-      ))} */}
+      <SessionContext.Provider value={session}>
+        <RouterProvider router={router} />
+      </SessionContext.Provider>
     </>
   );
 }

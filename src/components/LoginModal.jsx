@@ -1,43 +1,36 @@
+import { useFormik } from "formik";
 import React from "react";
 import { Modal, Button, Form, InputGroup } from "react-bootstrap";
+import axios from "axios";
 
 function LoginModal({ show, onHide }) {
-  async function logIn() {
-    try {
-      // Get request token
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/authentication/token/new?api_key=${
-          import.meta.env.VITE_TMDB_API_KEY
-        }`
-      );
-      const requestToken = response.data.request_token;
-
-      // Forward the user to the TMDB login page
-      window.location.href = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${window.location.origin}/authenticated`;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  async function signOut() {
-    try {
-      await axios.delete(
-        `https://api.themoviedb.org/3/authentication/session?api_key=${
-          import.meta.env.VITE_TMDB_API_KEY
-        }`,
-        {
-          data: {
-            session_id: localStorage.getItem("sessionId"),
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: async (values) => {
+      try {
+        const response = await axios.post(
+          `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/login`,
+          {
+            email: values.email,
+            password: values.password,
           },
-        }
-      );
+          {
+            headers: {
+              apiKey: import.meta.env.VITE_API_KEY,
+            },
+          }
+        );
 
-      localStorage.removeItem("sessionId");
-      window.location.reload();
-    } catch (error) {
-      console.error(error);
-    }
-  }
+        localStorage.setItem("token", response.data.token);
+        window.location.href = window.location.origin;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  });
 
   return (
     <>
@@ -49,11 +42,21 @@ function LoginModal({ show, onHide }) {
           <Form>
             <Form.Label htmlFor="email">Email</Form.Label>
             <InputGroup className="mb-3">
-              <Form.Control type="email" id="email" />
+              <Form.Control
+                type="email"
+                id="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+              />
             </InputGroup>
             <Form.Label htmlFor="password">Password</Form.Label>
             <InputGroup className="mb-3">
-              <Form.Control type="password" id="password" />
+              <Form.Control
+                type="password"
+                id="password"
+                onChange={formik.handleChange}
+                value={formik.values.password}
+              />
             </InputGroup>
           </Form>
         </Modal.Body>
@@ -61,7 +64,7 @@ function LoginModal({ show, onHide }) {
           <Button variant="secondary" onClick={() => onHide()}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => logIn()}>
+          <Button variant="primary" onClick={() => formik.submitForm()}>
             Log In
           </Button>
         </Modal.Footer>

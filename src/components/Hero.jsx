@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
 
 function Hero() {
   const [categories, setCategories] = useState([]); // There is useState to store categories array
@@ -22,7 +23,7 @@ function Hero() {
         `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/categories`,
         {
           headers: {
-            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            apiKey: import.meta.env.VITE_API_KEY,
           },
         }
       );

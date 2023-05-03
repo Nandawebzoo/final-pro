@@ -1,7 +1,8 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
 .navbar-beg {
-    justify-content: center;
+    display: flex;
+    justify-content: space-around;
     position: absolute;
     right: 0;
     left: 0;
@@ -26,7 +27,13 @@
     margin-left: 1rem;
 }
 
-.sign-in-btn {
-    position: absolute;
-    right: 32px;
+.profile-user {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1rem;
 }
