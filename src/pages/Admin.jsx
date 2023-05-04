@@ -1,9 +1,14 @@
 import React from "react";
+import "./admin.css";
+import AdminCategories from "../components/AdminCategories";
 
 function Admin() {
   return (
     <>
-      <h1>Saya Admin</h1>
+      <div className="admin">
+        <h1>Saya Admin</h1>
+        <AdminCategories />
+      </div>
     </>
   );
 }

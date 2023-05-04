@@ -1,6 +1,5 @@
 import React from "react";
 import "./homepage.css";
-
 import Badges from "../components/Badges";
 import Promos from "../components/Promos";
 import Categories from "../components/Categories";
