@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import axios from "axios";
 import EditModal from "../components/EditModal";
+import AddCategoryModal from "../components/AddCategoryModal";
 
 function AdminCategories() {
   const [categories, setCategories] = useState([]); // There is useState to store categories array
   const [showModal, setShowModal] = useState(false);
   const [editCategory, setEditCategory] = useState(null);
+  const [showAddCategoryModal, setShowAddCategoryModal] = useState(false);
 
   useEffect(() => {
     // Use useEffect to get data from the API
@@ -31,6 +33,10 @@ function AdminCategories() {
     setShowModal(true);
   };
 
+  const add = () => {
+    setShowAddCategoryModal(true);
+  };
+
   const onHideCategory = (category) => {
     if (category) {
       // update it on the categories array
@@ -48,6 +54,9 @@ function AdminCategories() {
   return (
     <>
       <h3>Categories</h3>
+      <div className="add-category-btn">
+        <Button onClick={() => add(true)}>Add Category</Button>
+      </div>
       <Table>
         <thead>
           <tr>
@@ -80,6 +89,16 @@ function AdminCategories() {
         show={showModal}
         onHide={(category) => onHideCategory(category)}
         category={editCategory}
+      />
+      <AddCategoryModal
+        show={showAddCategoryModal}
+        onHide={(success) => {
+          if (success === true) {
+            window.location.reload();
+          } else {
+            setShowAddCategoryModal(false);
+          }
+        }}
       />
     </>
   );

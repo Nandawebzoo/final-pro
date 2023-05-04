@@ -34,7 +34,24 @@ const updateCategory = async (category, token) => {
   );
 };
 
+const addCategory = async (category, token) => {
+  await axios.post(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/create-category`,
+    {
+      name: category.name,
+      imageUrl: category.imageUrl,
+    },
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 export const travelService = {
   uploadImage,
   updateCategory,
+  addCategory,
 };

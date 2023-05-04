@@ -6,3 +6,8 @@
     min-height: 100vh;
     padding: 5rem;
 }
+
+.add-category-btn {
+    display: flex;
+    justify-content: flex-end;
+}

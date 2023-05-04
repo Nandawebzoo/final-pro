@@ -1,21 +1,22 @@
-import { useFormik } from "formik";
-import { useContext, useEffect } from "react";
 import React from "react";
 import { Modal, Form, InputGroup, Button } from "react-bootstrap";
+import { useFormik } from "formik";
+import { useContext, useEffect } from "react";
 import { SessionContext } from "../App";
 import { travelService } from "../services/travelService";
 
-function EditModal({ show, onHide, category }) {
+function AddCategoryModal({ show, onHide }) {
   const session = useContext(SessionContext);
   const formik = useFormik({
     initialValues: {
       name: "",
       image: "",
     },
+
     onSubmit: async (values) => {
       try {
         // original imageUrl
-        let imageUrl = category.imageUrl;
+        let imageUrl = "";
 
         if (values.image) {
           // There is a new image, need to upload it to get the new url
@@ -26,25 +27,18 @@ function EditModal({ show, onHide, category }) {
         }
 
         const newCategory = {
-          id: category.id,
           name: values.name,
           imageUrl: imageUrl,
         };
 
-        await travelService.updateCategory(newCategory, session.token);
+        await travelService.addCategory(newCategory, session.token);
 
-        onHide(newCategory);
+        onHide(true);
       } catch (error) {
         console.error(error);
       }
     },
   });
-
-  useEffect(() => {
-    if (category) {
-      formik.setValues({ name: category.name, imageUrl: category.imageUrl });
-    }
-  }, [formik, category]);
 
   return (
     <Modal show={show} onHide={() => onHide()}>
@@ -88,4 +82,4 @@ function EditModal({ show, onHide, category }) {
   );
 }
 
-export default EditModal;
+export default AddCategoryModal;
