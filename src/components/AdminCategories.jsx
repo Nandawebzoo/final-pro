@@ -14,25 +14,25 @@ function AdminCategories() {
 
   useEffect(() => {
     // Use useEffect to get data from the API
-    const fetchCategories = async () => {
-      const response = await axios.get(
-        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/categories`,
-        {
-          headers: {
-            apiKey: import.meta.env.VITE_API_KEY,
-          },
-        }
-      );
-
-      setCategories(response.data.data); // set the data and store it in the state
-    };
-
-    fetchCategories(); // Execute or run the function
+    fetchCategories();
   }, []);
 
   const edit = (category) => {
     setEditCategory(category);
     setShowModal(true);
+  };
+
+  const fetchCategories = async () => {
+    const response = await axios.get(
+      `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/categories`,
+      {
+        headers: {
+          apiKey: import.meta.env.VITE_API_KEY,
+        },
+      }
+    );
+
+    setCategories(response.data.data); // set the data and store it in the state
   };
 
   const add = () => {
@@ -101,10 +101,9 @@ function AdminCategories() {
         show={showAddCategoryModal}
         onHide={(success) => {
           if (success === true) {
-            window.location.reload();
-          } else {
-            setShowAddCategoryModal(false);
+            fetchCategories(); // update the list
           }
+          setShowAddCategoryModal(false);
         }}
       />
       <DeleteCategoryModal
@@ -116,9 +115,9 @@ function AdminCategories() {
               (category) => category.id !== categoryId
             );
             setCategories(newCategories);
-          } else {
-            setDeleteCategory(null);
           }
+
+          setDeleteCategory(null);
         }}
         category={deleteCategory}
       />

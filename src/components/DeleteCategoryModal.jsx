@@ -9,7 +9,7 @@ function DeleteCategoryModal({ show, onHide, category }) {
   const deleteCategory = async () => {
     try {
       await travelService.deleteCategory(category.id, session.token);
-      onHide();
+      onHide(category.id);
     } catch (error) {
       console.log(error);
     }
