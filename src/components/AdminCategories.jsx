@@ -3,12 +3,14 @@ import { Table, Button } from "react-bootstrap";
 import axios from "axios";
 import EditModal from "../components/EditModal";
 import AddCategoryModal from "../components/AddCategoryModal";
+import DeleteCategoryModal from "../components/DeleteCategoryModal";
 
 function AdminCategories() {
   const [categories, setCategories] = useState([]); // There is useState to store categories array
   const [showModal, setShowModal] = useState(false);
   const [editCategory, setEditCategory] = useState(null);
   const [showAddCategoryModal, setShowAddCategoryModal] = useState(false);
+  const [deleteCategory, setDeleteCategory] = useState(null);
 
   useEffect(() => {
     // Use useEffect to get data from the API
@@ -79,7 +81,12 @@ function AdminCategories() {
                 <Button variant="warning" onClick={() => edit(item)}>
                   Edit
                 </Button>
-                <Button variant="danger">Delete</Button>
+                <Button
+                  variant="danger"
+                  onClick={() => setDeleteCategory(item)}
+                >
+                  Delete
+                </Button>
               </td>
             </tr>
           ))}
@@ -99,6 +106,21 @@ function AdminCategories() {
             setShowAddCategoryModal(false);
           }
         }}
+      />
+      <DeleteCategoryModal
+        show={deleteCategory !== null}
+        onHide={(categoryId) => {
+          if (categoryId) {
+            // Remove from category list
+            const newCategories = categories.filter(
+              (category) => category.id !== categoryId
+            );
+            setCategories(newCategories);
+          } else {
+            setDeleteCategory(null);
+          }
+        }}
+        category={deleteCategory}
       />
     </>
   );
