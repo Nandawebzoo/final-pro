@@ -1,8 +1,8 @@
 import React from "react";
 import { Card, Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "./category.css";
+import { travelService } from "../services/travelService";
 
 function Categories() {
   const [categories, setCategories] = useState([]); // There is useState to store categories array
@@ -10,16 +10,9 @@ function Categories() {
   useEffect(() => {
     // Use useEffect to get data from the API
     const fetchCategories = async () => {
-      const response = await axios.get(
-        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/categories`,
-        {
-          headers: {
-            apiKey: import.meta.env.VITE_API_KEY,
-          },
-        }
-      );
+      const categories = await travelService.getCategories();
 
-      setCategories(response.data.data); // set the data and store it in the state
+      setCategories(categories); // set the data and store it in the state
     };
 
     fetchCategories(); // Execute or run the function

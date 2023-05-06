@@ -62,9 +62,23 @@ const deleteCategory = async (categoryId, token) => {
   );
 };
 
+const getCategories = async () => {
+  const response = await axios.get(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/categories`,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+      },
+    }
+  );
+
+  return response.data.data;
+};
+
 export const travelService = {
   uploadImage,
   updateCategory,
   addCategory,
   deleteCategory,
+  getCategories,
 };

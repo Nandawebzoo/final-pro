@@ -4,6 +4,7 @@ import axios from "axios";
 import EditModal from "../components/EditModal";
 import AddCategoryModal from "../components/AddCategoryModal";
 import DeleteCategoryModal from "../components/DeleteCategoryModal";
+import { travelService } from "../services/travelService";
 
 function AdminCategories() {
   const [categories, setCategories] = useState([]); // There is useState to store categories array
@@ -23,16 +24,9 @@ function AdminCategories() {
   };
 
   const fetchCategories = async () => {
-    const response = await axios.get(
-      `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/categories`,
-      {
-        headers: {
-          apiKey: import.meta.env.VITE_API_KEY,
-        },
-      }
-    );
+    const categories = await travelService.getCategories();
 
-    setCategories(response.data.data); // set the data and store it in the state
+    setCategories(categories); // set the data and store it in the state
   };
 
   const add = () => {
