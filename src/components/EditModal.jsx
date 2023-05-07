@@ -44,7 +44,8 @@ function EditModal({ show, onHide, category }) {
     if (category) {
       formik.setValues({ name: category.name, imageUrl: category.imageUrl });
     }
-  }, [formik, category]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category]);
 
   return (
     <Modal show={show} onHide={() => onHide()}>

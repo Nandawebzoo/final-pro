@@ -10,42 +10,46 @@ function Navbar() {
 
   function signOut() {
     localStorage.removeItem("token");
-    window.location.reload();
+    window.location.href = "/";
   }
 
   return (
     <>
-      <div className="navbar-beg">
-        <div>✈️</div>
+      <Nav className="navbar-beg">
         <div>
-          <Nav>
-            <Nav.Item>
-              <Nav.Link href="/" className="a-navbar">
-                Homepage
+          <Nav.Item>✈️</Nav.Item>
+        </div>
+        <div className="nav-links">
+          <Nav.Item>
+            <Nav.Link href="/" className="a-navbar">
+              Homepage
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/activities" className="a-navbar">
+              Activities
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            {session !== null && session.userDetails.role === "admin" && (
+              <Nav.Link href="/admin" className="a-navbar">
+                Admin
               </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/activities" className="a-navbar">
-                Activities
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              {session !== null && session.userDetails.role === "admin" && (
-                <Nav.Link href="/admin" className="a-navbar">
-                  Admin
-                </Nav.Link>
-              )}
-            </Nav.Item>
-          </Nav>
+            )}
+          </Nav.Item>
         </div>
         <div className="nav-actions">
-          {session?.userDetails.profilePictureUrl && (
-            <img
-              title={session.userDetails.name}
-              src={session.userDetails.profilePictureUrl}
-              className="profile-user"
-            />
-          )}
+          <Button>
+            {session?.userDetails.profilePictureUrl ? (
+              <img
+                title={session.userDetails.name}
+                src={session.userDetails.profilePictureUrl}
+                className="profile-user"
+              />
+            ) : (
+              <>😎</>
+            )}
+          </Button>
           {session !== null ? (
             <Button className="sign-in-btn" variant="primary" onClick={signOut}>
               Log Out
@@ -60,7 +64,7 @@ function Navbar() {
             </Button>
           )}
         </div>
-      </div>
+      </Nav>
 
       <LoginModal show={showModal} onHide={() => setShowModal(false)} />
     </>

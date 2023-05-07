@@ -11,6 +11,7 @@ import Admin from "./pages/Admin";
 import Homepage from "./pages/Homepage";
 import AppShell from "./components/Appshell";
 import "bootstrap/dist/css/bootstrap.min.css";
+import RegisterPage from "./components/RegisterPage";
 
 export const SessionContext = createContext(null);
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
         <Route index element={<Homepage />} />
         <Route path="Activities" element={<Activities />} />
         <Route path="Admin" element={<Admin />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Route>
     </>
   )

@@ -2,8 +2,11 @@ import { useFormik } from "formik";
 import React from "react";
 import { Modal, Button, Form, InputGroup } from "react-bootstrap";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginModal({ show, onHide }) {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -61,8 +64,14 @@ function LoginModal({ show, onHide }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => onHide()}>
-            Close
+          <Button
+            variant="warning"
+            onClick={() => {
+              onHide();
+              navigate("/register");
+            }}
+          >
+            Register
           </Button>
           <Button variant="primary" onClick={() => formik.submitForm()}>
             Log In

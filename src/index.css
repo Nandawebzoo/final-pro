@@ -1,39 +1,59 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
 .navbar-beg {
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0;
+  background-color: #063784;
 }
 
-.a-navbar {
-    color: #fff;
+.nav-links {
+  display: flex;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: cadetblue;
 }
 
 .btn-sign {
-    justify-content: left;
-    margin-left: 30rem;
+  justify-content: left;
+  margin-left: 30rem;
 }
 
 .form-control {
-    display: flex;
-    width: 500px;
+  display: flex;
+  width: 500px;
 }
 
 .btn-search {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .profile-user {
-    width: 36px;
-    height: 36px;
-    border-radius: 100%;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
 }
 
 .nav-actions {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.register-form {
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
 }

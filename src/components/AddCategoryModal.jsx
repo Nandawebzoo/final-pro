@@ -43,7 +43,7 @@ function AddCategoryModal({ show, onHide }) {
   return (
     <Modal show={show} onHide={() => onHide()}>
       <Modal.Header closeButton>
-        <Modal.Title>Edit Category</Modal.Title>
+        <Modal.Title>Add Category</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
