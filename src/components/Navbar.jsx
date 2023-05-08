@@ -3,10 +3,12 @@ import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import LoginModal from "./LoginModal";
 import { SessionContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [showModal, setShowModal] = useState(false);
   const session = useContext(SessionContext);
+  const navigate = useNavigate();
 
   function signOut() {
     localStorage.removeItem("token");
@@ -39,17 +41,19 @@ function Navbar() {
           </Nav.Item>
         </div>
         <div className="nav-actions">
-          <Button>
-            {session?.userDetails.profilePictureUrl ? (
-              <img
-                title={session.userDetails.name}
-                src={session.userDetails.profilePictureUrl}
-                className="profile-user"
-              />
-            ) : (
-              <>😎</>
-            )}
-          </Button>
+          {session?.userDetails && (
+            <Button onClick={() => navigate("/profile")}>
+              {session?.userDetails.profilePictureUrl ? (
+                <img
+                  title={session.userDetails.name}
+                  src={session.userDetails.profilePictureUrl}
+                  className="profile-user"
+                />
+              ) : (
+                <>😎</>
+              )}
+            </Button>
+          )}
           {session !== null ? (
             <Button className="sign-in-btn" variant="primary" onClick={signOut}>
               Log Out
@@ -70,25 +74,5 @@ function Navbar() {
     </>
   );
 }
-
-/* {session?.userDetails.avatar.tmdb.avatar_path && (
-              <img
-                title={session.userDetails.username}
-                src={`https://image.tmdb.org/t/p/w500${session.userDetails.avatar.tmdb.avatar_path}`}
-                className="avatar-prof"
-              />
-            )}
-            {session !== null ? (
-              <Button className="btn-sign" variant="primary" onClick={signOut}>
-                Sign Out
-              </Button>
-            ) : (
-              <Button className="btn-sign" variant="primary" onClick={signIn}>
-                Sign In
-              </Button>
-            )} 
-    
-            
-}*/
 
 export default Navbar;
