@@ -21,32 +21,52 @@ function EditActivityModal({ show, onHide, activity }) {
   const session = useContext(SessionContext);
   const formik = useFormik({
     initialValues: {
-      name: "",
+      title: "",
       image: "",
-      category: "",
+      categoryId: "",
+      description: "",
+      price: "",
+      discount: "",
+      rating: "",
+      review: "",
+      facilities: "",
+      address: "",
+      province: "",
+      city: "",
     },
     onSubmit: async (values) => {
       try {
         // original imageUrl
-        let imageUrls = activity.imageUrls;
+        let imageUrls = activity.imageUrls || []; // make it an array if api returns undefined
 
         if (values.image) {
           // There is a new image, need to upload it to get the new url
-          imageUrls = await travelService.uploadImage(
+          const imageUrl = await travelService.uploadImage(
             values.image,
             session.token
           );
+
+          imageUrls = [imageUrl, ...imageUrls]; // ensure the new image is on the first position so it shows on the list
         }
 
-        const newActivity = {
+        const updatedActivity = {
           id: activity.id,
-          name: values.name,
+          title: values.title,
           imageUrls: imageUrls,
+          description: values.description,
+          price: values.price,
+          discount: values.discount,
+          rating: values.rating,
+          review: values.review,
+          facilities: values.facilities,
+          address: values.address,
+          province: values.province,
+          city: values.city,
         };
 
-        await travelService.updateActivity(newActivity, session.token);
+        await travelService.updateActivity(updatedActivity, session.token);
 
-        onHide(newActivity);
+        onHide(updatedActivity);
       } catch (error) {
         console.error(error);
       }
@@ -55,7 +75,19 @@ function EditActivityModal({ show, onHide, activity }) {
 
   useEffect(() => {
     if (activity) {
-      formik.setValues({ name: activity.title, imageUrls: activity.imageUrls });
+      formik.setValues({
+        title: activity.title,
+        categoryId: activity.category?.id,
+        description: activity.description,
+        price: activity.price,
+        discount: activity.price_discount,
+        rating: activity.rating,
+        review: activity.total_reviews,
+        facilities: activity.facilities,
+        address: activity.address,
+        province: activity.province,
+        city: activity.city,
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activity]);
@@ -68,13 +100,13 @@ function EditActivityModal({ show, onHide, activity }) {
 
       <Modal.Body>
         <Form>
-          <Form.Label htmlFor="name">Name</Form.Label>
+          <Form.Label htmlFor="title">Title</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type="text"
-              id="name"
+              id="title"
               onChange={formik.handleChange}
-              value={formik.values.name}
+              value={formik.values.title}
             />
           </InputGroup>
           <Form.Label htmlFor="imageUrls">Image</Form.Label>
@@ -87,12 +119,13 @@ function EditActivityModal({ show, onHide, activity }) {
               }}
             />
           </InputGroup>
-          <Form.Label htmlFor="category">Choose Category</Form.Label>
+          <Form.Label htmlFor="category">Category</Form.Label>
           <InputGroup>
             <Form.Select
               onChange={formik.handleChange}
-              value={formik.values.category}
+              value={formik.values.categoryId}
             >
+              <option value="">Choose a category</option>
               {categories.map((category) => (
                 <option value={category.id} key={category.id}>
                   {category.name}

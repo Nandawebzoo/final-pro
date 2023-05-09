@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { SessionContext } from "../App";
 import { travelService } from "../services/travelService";
 
-function AddActivityModal({ show, onHide, activity }) {
+function AddActivityModal({ show, onHide }) {
   const [categories, setCategories] = useState([]); // There is useState to store categories array
 
   useEffect(() => {
@@ -22,56 +22,58 @@ function AddActivityModal({ show, onHide, activity }) {
   const session = useContext(SessionContext);
   const formik = useFormik({
     initialValues: {
-      name: "",
+      title: "",
       image: "",
-      category: "",
+      categoryId: "",
+      description: "",
+      price: "",
+      discount: "",
+      rating: "",
+      review: "",
+      facilities: "",
+      address: "",
+      province: "",
+      city: "",
     },
     onSubmit: async (values) => {
       try {
         // original imageUrl
-        let imageUrls = activity.imageUrls;
+        let imageUrl = undefined;
 
         if (values.image) {
           // There is a new image, need to upload it to get the new url
-          imageUrls = await travelService.uploadImage(
+          imageUrl = await travelService.uploadImage(
             values.image,
             session.token
           );
         }
 
         const newActivity = {
-          id: activity.id,
-          name: values.name,
-          imageUrls: imageUrls,
+          title: values.title,
+          categoryId: values.categoryId,
+          description: values.description,
+          price: values.price,
+          discount: values.discount,
+          rating: values.rating,
+          review: values.review,
+          facilities: values.facilities,
+          address: values.address,
+          province: values.province,
+          city: values.city,
         };
 
-        await travelService.updateActivity(newActivity, session.token);
+        if (imageUrl) {
+          newActivity.imageUrls = [imageUrl];
+        }
 
-        onHide(newActivity);
+        await travelService.createActivity(newActivity, session.token);
+
+        onHide(true);
       } catch (error) {
         console.error(error);
       }
     },
   });
-
-  useEffect(() => {
-    if (activity) {
-      formik.setValues({
-        name: activity.title,
-        imageUrls: activity.imageUrls,
-        description: activity.description,
-        price: activity.price,
-        discount: activity.price_discount,
-        rating: activity.rating,
-        review: activity.total_reviews,
-        facilities: activity.facilities,
-        address: activity.address,
-        province: activity.province,
-        city: activity.city,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activity]);
 
   return (
     <Modal show={show} onHide={() => onHide()}>
@@ -81,13 +83,13 @@ function AddActivityModal({ show, onHide, activity }) {
 
       <Modal.Body>
         <Form>
-          <Form.Label htmlFor="name">Name</Form.Label>
+          <Form.Label htmlFor="name">Title</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type="text"
-              id="name"
+              id="title"
               onChange={formik.handleChange}
-              value={formik.values.name}
+              value={formik.values.title}
             />
           </InputGroup>
           <Form.Label htmlFor="imageUrls">Image</Form.Label>
@@ -105,8 +107,11 @@ function AddActivityModal({ show, onHide, activity }) {
           <InputGroup>
             <Form.Select
               onChange={formik.handleChange}
-              value={formik.values.category}
+              value={formik.values.categoryId}
+              name="categoryId"
             >
+              <option value="">Choose a category</option>
+
               {categories.map((category) => (
                 <option value={category.id} key={category.id}>
                   {category.name}
@@ -126,7 +131,7 @@ function AddActivityModal({ show, onHide, activity }) {
           <Form.Label htmlFor="price">Price</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
-              type="text"
+              type="number"
               id="price"
               onChange={formik.handleChange}
               value={formik.values.price}
@@ -136,7 +141,7 @@ function AddActivityModal({ show, onHide, activity }) {
           <Form.Label htmlFor="discount">Discount</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
-              type="text"
+              type="number"
               id="discount"
               onChange={formik.handleChange}
               value={formik.values.price_discount}
@@ -146,7 +151,7 @@ function AddActivityModal({ show, onHide, activity }) {
           <Form.Label htmlFor="rating">Rating</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
-              type="text"
+              type="number"
               id="rating"
               onChange={formik.handleChange}
               value={formik.values.rating}
@@ -155,7 +160,7 @@ function AddActivityModal({ show, onHide, activity }) {
           <Form.Label htmlFor="reviews">Total Reviews</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
-              type="text"
+              type="number"
               id="reviews"
               onChange={formik.handleChange}
               value={formik.values.total_reviews}

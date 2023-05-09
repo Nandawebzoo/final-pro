@@ -21,10 +21,7 @@ const uploadImage = async (image, token) => {
 const updateCategory = async (category, token) => {
   await axios.post(
     `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/update-category/${category.id}`,
-    {
-      name: category.name,
-      imageUrl: category.imageUrl,
-    },
+    category,
     {
       headers: {
         apiKey: import.meta.env.VITE_API_KEY,
@@ -37,10 +34,7 @@ const updateCategory = async (category, token) => {
 const addCategory = async (category, token) => {
   await axios.post(
     `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/create-category`,
-    {
-      name: category.name,
-      imageUrl: category.imageUrl,
-    },
+    category,
     {
       headers: {
         apiKey: import.meta.env.VITE_API_KEY,
@@ -88,6 +82,44 @@ const getActivities = async () => {
   return response.data.data;
 };
 
+const createActivity = async (activity, token) => {
+  await axios.post(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/create-activity`,
+    activity,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+const updateActivity = async (activity, token) => {
+  await axios.post(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/update-activity/${activity.id}`,
+    activity,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+const deleteActivity = async (activityId, token) => {
+  await axios.delete(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/delete-activity/${activityId}`,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 export const travelService = {
   uploadImage,
   updateCategory,
@@ -95,4 +127,7 @@ export const travelService = {
   deleteCategory,
   getCategories,
   getActivities,
+  createActivity,
+  updateActivity,
+  deleteActivity,
 };
