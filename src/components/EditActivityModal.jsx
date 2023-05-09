@@ -52,6 +52,7 @@ function EditActivityModal({ show, onHide, activity }) {
         const updatedActivity = {
           id: activity.id,
           title: values.title,
+          categoryId: values.categoryId,
           imageUrls: imageUrls,
           description: values.description,
           price: values.price,
@@ -100,7 +101,7 @@ function EditActivityModal({ show, onHide, activity }) {
 
       <Modal.Body>
         <Form>
-          <Form.Label htmlFor="title">Title</Form.Label>
+          <Form.Label htmlFor="name">Title</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type="text"
@@ -120,18 +121,107 @@ function EditActivityModal({ show, onHide, activity }) {
             />
           </InputGroup>
           <Form.Label htmlFor="category">Category</Form.Label>
+
           <InputGroup>
             <Form.Select
               onChange={formik.handleChange}
               value={formik.values.categoryId}
+              name="categoryId"
             >
               <option value="">Choose a category</option>
+
               {categories.map((category) => (
                 <option value={category.id} key={category.id}>
                   {category.name}
                 </option>
               ))}
             </Form.Select>
+          </InputGroup>
+          <Form.Label htmlFor="description">Description</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              as="textarea"
+              type="text"
+              id="description"
+              onChange={formik.handleChange}
+              value={formik.values.description}
+            />
+          </InputGroup>
+          <Form.Label htmlFor="price">Price</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type="number"
+              id="price"
+              onChange={formik.handleChange}
+              value={formik.values.price}
+            />
+          </InputGroup>
+
+          <Form.Label htmlFor="discount">Discount</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type="number"
+              id="discount"
+              onChange={formik.handleChange}
+              value={formik.values.price_discount}
+            />
+          </InputGroup>
+
+          <Form.Label htmlFor="rating">Rating</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type="number"
+              id="rating"
+              onChange={formik.handleChange}
+              value={formik.values.rating}
+            />
+          </InputGroup>
+          <Form.Label htmlFor="reviews">Total Reviews</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type="number"
+              id="reviews"
+              onChange={formik.handleChange}
+              value={formik.values.total_reviews}
+            />
+          </InputGroup>
+          <Form.Label htmlFor="facilities">Facilities</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type="text"
+              id="facilities"
+              onChange={formik.handleChange}
+              value={formik.values.facilities}
+            />
+          </InputGroup>
+
+          <Form.Label htmlFor="address">Address</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type="text"
+              id="address"
+              onChange={formik.handleChange}
+              value={formik.values.address}
+            />
+          </InputGroup>
+
+          <Form.Label htmlFor="province">Province</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type="text"
+              id="province"
+              onChange={formik.handleChange}
+              value={formik.values.province}
+            />
+          </InputGroup>
+          <Form.Label htmlFor="city">City</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type="text"
+              id="city"
+              onChange={formik.handleChange}
+              value={formik.values.city}
+            />
           </InputGroup>
         </Form>
       </Modal.Body>

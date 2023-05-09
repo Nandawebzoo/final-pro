@@ -71,9 +71,9 @@ function AdminActivities() {
               <td>{index + 1}</td>
               <td>{item.title}</td>
               <td>
-                <img src={item.imageUrls} style={{ width: 100 }} />
+                <img src={item.imageUrls[0]} style={{ width: 100 }} />
               </td>
-              <td>{item.category.name}</td>
+              <td>{item.category?.name}</td>
               <td>{item.price}</td>
               <td>{item.rating}</td>
               <td>{item.city}</td>

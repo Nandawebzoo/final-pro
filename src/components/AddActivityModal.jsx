@@ -122,6 +122,7 @@ function AddActivityModal({ show, onHide }) {
           <Form.Label htmlFor="description">Description</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
+              as="textarea"
               type="text"
               id="description"
               onChange={formik.handleChange}
