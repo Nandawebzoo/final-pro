@@ -7,3 +7,11 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.tab-admin {
+    background-color: #063784;
+}
+
+.category-edit-btn {
+    gap: 1rem;
+}

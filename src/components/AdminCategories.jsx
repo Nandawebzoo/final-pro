@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
-import axios from "axios";
 import EditModal from "../components/EditModal";
 import AddCategoryModal from "../components/AddCategoryModal";
 import DeleteCategoryModal from "../components/DeleteCategoryModal";
@@ -49,7 +48,6 @@ function AdminCategories() {
 
   return (
     <>
-      <h3>Categories</h3>
       <div className="add-category-btn">
         <Button onClick={() => add(true)}>Add Category</Button>
       </div>
@@ -59,7 +57,7 @@ function AdminCategories() {
             <th>#</th>
             <th>Name</th>
             <th>Image</th>
-            <th>Actions</th>
+            <th style={{ gap: "1rem" }}>Actions</th>
           </tr>
         </thead>
 
@@ -72,15 +70,17 @@ function AdminCategories() {
                 <img src={item.imageUrl} style={{ width: 100 }} />
               </td>
               <td>
-                <Button variant="warning" onClick={() => edit(item)}>
-                  Edit
-                </Button>
-                <Button
-                  variant="danger"
-                  onClick={() => setDeleteCategory(item)}
-                >
-                  Delete
-                </Button>
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <Button variant="warning" onClick={() => edit(item)}>
+                    Edit
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => setDeleteCategory(item)}
+                  >
+                    Delete
+                  </Button>
+                </div>
               </td>
             </tr>
           ))}
