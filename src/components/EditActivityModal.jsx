@@ -56,9 +56,9 @@ function EditActivityModal({ show, onHide, activity }) {
           imageUrls: imageUrls,
           description: values.description,
           price: values.price,
-          discount: values.discount,
+          price_discount: values.price_discount,
           rating: values.rating,
-          review: values.review,
+          total_reviews: values.total_reviews,
           facilities: values.facilities,
           address: values.address,
           province: values.province,
@@ -66,6 +66,10 @@ function EditActivityModal({ show, onHide, activity }) {
         };
 
         await travelService.updateActivity(updatedActivity, session.token);
+
+        updatedActivity.category = categories.find(
+          (x) => x.id === values.categoryId
+        );
 
         onHide(updatedActivity);
       } catch (error) {
@@ -81,9 +85,9 @@ function EditActivityModal({ show, onHide, activity }) {
         categoryId: activity.category?.id,
         description: activity.description,
         price: activity.price,
-        discount: activity.price_discount,
+        price_discount: activity.price_discount,
         rating: activity.rating,
-        review: activity.total_reviews,
+        total_reviews: activity.total_reviews,
         facilities: activity.facilities,
         address: activity.address,
         province: activity.province,
@@ -129,7 +133,6 @@ function EditActivityModal({ show, onHide, activity }) {
               name="categoryId"
             >
               <option value="">Choose a category</option>
-
               {categories.map((category) => (
                 <option value={category.id} key={category.id}>
                   {category.name}
@@ -157,11 +160,11 @@ function EditActivityModal({ show, onHide, activity }) {
             />
           </InputGroup>
 
-          <Form.Label htmlFor="discount">Discount</Form.Label>
+          <Form.Label htmlFor="price_discount">Discount</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type="number"
-              id="discount"
+              id="price_discount"
               onChange={formik.handleChange}
               value={formik.values.price_discount}
             />
@@ -176,11 +179,11 @@ function EditActivityModal({ show, onHide, activity }) {
               value={formik.values.rating}
             />
           </InputGroup>
-          <Form.Label htmlFor="reviews">Total Reviews</Form.Label>
+          <Form.Label htmlFor="total_reviews">Total Reviews</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type="number"
-              id="reviews"
+              id="total_reviews"
               onChange={formik.handleChange}
               value={formik.values.total_reviews}
             />

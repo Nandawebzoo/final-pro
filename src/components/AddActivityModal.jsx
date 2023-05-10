@@ -53,9 +53,9 @@ function AddActivityModal({ show, onHide }) {
           categoryId: values.categoryId,
           description: values.description,
           price: values.price,
-          discount: values.discount,
+          price_discount: values.price_discount,
           rating: values.rating,
-          review: values.review,
+          total_reviews: values.total_reviews,
           facilities: values.facilities,
           address: values.address,
           province: values.province,
@@ -83,7 +83,7 @@ function AddActivityModal({ show, onHide }) {
 
       <Modal.Body>
         <Form>
-          <Form.Label htmlFor="name">Title</Form.Label>
+          <Form.Label htmlFor="title">Title</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type="text"
@@ -96,13 +96,13 @@ function AddActivityModal({ show, onHide }) {
           <InputGroup className="mb-3">
             <Form.Control
               type="file"
-              id="image"
+              id="imageUrls"
               onChange={(event) => {
                 formik.setFieldValue("image", event.currentTarget.files[0]);
               }}
             />
           </InputGroup>
-          <Form.Label htmlFor="category">Category</Form.Label>
+          <Form.Label htmlFor="categoryId">Category</Form.Label>
 
           <InputGroup>
             <Form.Select
@@ -139,11 +139,11 @@ function AddActivityModal({ show, onHide }) {
             />
           </InputGroup>
 
-          <Form.Label htmlFor="discount">Discount</Form.Label>
+          <Form.Label htmlFor="price_discount">Discount</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type="number"
-              id="discount"
+              id="price_discount"
               onChange={formik.handleChange}
               value={formik.values.price_discount}
             />
@@ -158,11 +158,11 @@ function AddActivityModal({ show, onHide }) {
               value={formik.values.rating}
             />
           </InputGroup>
-          <Form.Label htmlFor="reviews">Total Reviews</Form.Label>
+          <Form.Label htmlFor="total_reviews">Total Reviews</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type="number"
-              id="reviews"
+              id="total_reviews"
               onChange={formik.handleChange}
               value={formik.values.total_reviews}
             />
@@ -186,7 +186,6 @@ function AddActivityModal({ show, onHide }) {
               value={formik.values.address}
             />
           </InputGroup>
-
           <Form.Label htmlFor="province">Province</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control

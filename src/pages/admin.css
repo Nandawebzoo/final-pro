@@ -9,7 +9,18 @@
 }
 
 .tab-admin {
+    padding: 16px 16px 0 16px;
     background-color: #063784;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.nav-item > button[aria-selected="false"] {
+    color: white;
+}
+
+.nav-tabs .nav-link.active {
+    color: #063784 !important;
 }
 
 .category-edit-btn {

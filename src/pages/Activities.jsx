@@ -91,7 +91,13 @@ function Activities() {
                   <Card.Body>
                     <Card.Title>{activity.title}</Card.Title>
                     <Card.Text>{activity.description}</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+
+                    <Button
+                      variant="primary"
+                      onClick={() => navigate("/activities/" + activity.id)}
+                    >
+                      Show Details
+                    </Button>
                   </Card.Body>
                 </Card>
               ))}

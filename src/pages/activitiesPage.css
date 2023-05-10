@@ -1,0 +1,67 @@
+.container-activity-page {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    height: 640px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container-activity-page img {
+    width: 420px;
+    height: 247px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.article2 {
+    flex: 1;
+    width: 50%;
+}
+
+.article2 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.prices {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.prices p {
+    flex: 1;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.price-discount {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    margin-right: 10px;
+    background-color: #fff;
+}
+
+.price-before-discount {
+    font-size: 16px;
+    text-decoration: line-through;
+    color: blue;
+    margin-right: 10px;
+}
+
+.btn-activity-page {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-activity-page:hover {
+    background-color: #0056b3;
+}

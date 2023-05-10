@@ -1,7 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import "./admin.css";
 import AdminCategories from "../components/AdminCategories";
-import { SessionContext } from "../App";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import AdminActivities from "../components/AdminActivities";
