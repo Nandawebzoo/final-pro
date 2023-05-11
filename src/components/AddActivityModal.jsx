@@ -37,7 +37,6 @@ function AddActivityModal({ show, onHide }) {
     },
     onSubmit: async (values) => {
       try {
-        // original imageUrl
         let imageUrl = undefined;
 
         if (values.image) {

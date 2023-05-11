@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./activitiesPage.css";
