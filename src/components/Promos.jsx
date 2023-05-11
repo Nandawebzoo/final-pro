@@ -56,6 +56,7 @@ function Promos() {
         items={items}
         responsive={responsive}
         controlsStrategy="responsive"
+        autoPlay
         autoPlayInterval="2000"
         disableButtonsControls
         infinite
