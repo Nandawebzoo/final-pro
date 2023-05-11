@@ -19,3 +19,7 @@
     flex-wrap: wrap;
     gap: 2rem;
 }
+
+.category-img {
+    height: 190px;
+}

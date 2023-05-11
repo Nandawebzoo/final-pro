@@ -25,7 +25,11 @@ function Categories() {
         <div className="category-list">
           {categories.map((item) => (
             <Card key={item.id} className="category-card">
-              <Card.Img variant="top" src={item.imageUrl} />
+              <Card.Img
+                className="category-img"
+                variant="top"
+                src={item.imageUrl}
+              />
               <Card.Body className="category-body">
                 <Card.Title>{item.name}</Card.Title>
               </Card.Body>
