@@ -41,7 +41,6 @@ function ActivityPage() {
             <span className="price-discount">{activity?.price_discount}</span>
             <span className="price-before-discount">{activity?.price}</span>
           </div>
-          <Button className="btn-activity-page">Add to Favorites</Button>
         </div>
       </section>
     </>
