@@ -5,4 +5,47 @@
     margin: 1rem;
     text-align: center;
     position: relative;
+    height: auto;
+    flex: 1;
+}
+
+.code-promo {
+    width: 80px;
+    height: 50px;
+    background: #063784;
+    padding: 0.3rem;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5rem;
+}
+
+.promo-poster {
+    height: 190px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    gap: 0;
+}
+
+.promo-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.alice-carousel__stage {
+    display: flex;
+}
+.alice-carousel__stage-item {
+    display: flex;
+    flex: 1 0 auto;
+    height: auto;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

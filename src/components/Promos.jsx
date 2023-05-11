@@ -35,14 +35,15 @@ function Promos() {
 
   const items = promos.map((item) => (
     <Card key={item.id} className="item-promo">
-      <Card.Img variant="top" src={item.imageUrl} />
+      <Card.Img className="promo-poster" variant="top" src={item.imageUrl} />
       <Card.Body>
         <Card.Title>{item.title}</Card.Title>
-        <Card.Text>
+        <Card.Text className="promo-description">
           Some quick example text to build on the card title and make up the
           bulk of the cards content.
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <h5 className="code-promo">Code: {item.promo_code}</h5>
+        <Button variant="primary">Get Promo</Button>
       </Card.Body>
     </Card>
   ));
@@ -56,7 +57,6 @@ function Promos() {
         responsive={responsive}
         controlsStrategy="responsive"
         autoPlayInterval="2000"
-        autoPlay
         disableButtonsControls
         infinite
       />
