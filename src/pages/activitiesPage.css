@@ -40,7 +40,7 @@
 .price-discount {
     font-size: 18px;
     font-weight: bold;
-    color: red;
+    color: rgb(56, 23, 190);
     margin-right: 10px;
     background-color: #fff;
 }
@@ -48,7 +48,7 @@
 .price-before-discount {
     font-size: 16px;
     text-decoration: line-through;
-    color: blue;
+    color: red;
     margin-right: 10px;
 }
 

@@ -87,10 +87,16 @@ function Activities() {
             <div className="activity-items">
               {activities?.map((activity) => (
                 <Card key={activity.id} style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={activity.imageUrls[0]} />
+                  <Card.Img
+                    className="activity-img"
+                    variant="top"
+                    src={activity.imageUrls[0]}
+                  />
                   <Card.Body>
                     <Card.Title>{activity.title}</Card.Title>
-                    <Card.Text>{activity.description}</Card.Text>
+                    <Card.Text className="activity-description">
+                      {activity.description}
+                    </Card.Text>
 
                     <Button
                       variant="primary"
