@@ -55,3 +55,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+@media (max-width: 450px) {
+    .activity-text h1 {
+        font-size: 40px;
+    }
+}

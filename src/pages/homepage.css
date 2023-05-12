@@ -26,3 +26,22 @@
     font-weight: bold;
     font-size: 60px;
 }
+
+@media (max-width: 450px) {
+    .hero .container,
+    .hero .container .input-group {
+        width: 100%;
+        height: 20%;
+    }
+
+    .hero-text h1,
+    .hero-text {
+        font-size: 20px;
+        margin-top: 3rem;
+    }
+
+    .hero {
+        width: 100%;
+        height: 246px;
+    }
+}

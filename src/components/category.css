@@ -1,7 +1,8 @@
 .category-card.card {
     border: none;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-    width: 18rem;
+    width: 288px;
+    max-width: calc(50% - 2rem);
 }
 
 .category-body {
@@ -11,7 +12,7 @@
 }
 
 .category-container {
-    margin-bottom: 20rem;
+    margin-bottom: 3rem;
 }
 
 .category-list {
@@ -22,4 +23,23 @@
 
 .category-img {
     height: 190px;
+}
+
+@media (max-width: 450px) {
+    .category-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .category-img {
+        height: 50%;
+    }
+
+    .card-title h5 {
+        font-weight: 100;
+    }
+    .category-card.card {
+        width: 178px;
+        height: 207px;
+    }
 }

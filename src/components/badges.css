@@ -1,5 +1,6 @@
 .badge-icon {
     font-size: 64px;
+    color: coral;
 }
 
 .card-badge.card {
@@ -28,6 +29,15 @@
     margin-bottom: 5rem;
 }
 
-.badge-icon {
-    color: coral;
+@media only screen and (max-width: 450px) {
+    .badge-icon {
+        display: none;
+    }
+
+    .container-badge {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
 }

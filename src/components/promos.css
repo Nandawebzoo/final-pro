@@ -49,3 +49,13 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+@media (max-width: 450px) {
+    .alice-carousel__dots {
+        display: none;
+        margin-bottom: 2rem;
+    }
+    .alice-carousel {
+        margin-bottom: 2rem;
+    }
+}

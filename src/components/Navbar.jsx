@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import LoginModal from "./LoginModal";
 import { SessionContext } from "../App";
 import { useNavigate } from "react-router-dom";
+("./index.css");
 
 function Navbar() {
   const [showModal, setShowModal] = useState(false);
@@ -42,7 +43,10 @@ function Navbar() {
         </div>
         <div className="nav-actions">
           {session?.userDetails && (
-            <Button onClick={() => navigate("/profile")}>
+            <Button
+              className="btn-profile-user"
+              onClick={() => navigate("/profile")}
+            >
               {session?.userDetails.profilePictureUrl ? (
                 <img
                   title={session.userDetails.name}
@@ -69,7 +73,6 @@ function Navbar() {
           )}
         </div>
       </Nav>
-
       <LoginModal show={showModal} onHide={() => setShowModal(false)} />
     </>
   );

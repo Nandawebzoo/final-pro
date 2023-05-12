@@ -1,15 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Container,
-  Form,
-  FormControl,
-  InputGroup,
-} from "react-bootstrap";
+import { Button, Container, Form, InputGroup } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useFormik } from "formik";
 
 function Hero() {
   const [categories, setCategories] = useState([]); // There is useState to store categories array

@@ -57,3 +57,25 @@
 .success {
   color: green;
 }
+
+/* Mobile Phone */
+@media (max-width: 450px) {
+  .nav-item {
+    font-size: 60%;
+  }
+  .navbar-beg {
+    gap: 20px;
+  }
+  .profile-user {
+    margin-top: 0;
+  }
+  .sign-in-btn {
+    font-size: 50%;
+    width: 70%;
+    height: 50%;
+    margin-top: 10px;
+  }
+  .btn-profile-user {
+    padding: 4px;
+  }
+}
