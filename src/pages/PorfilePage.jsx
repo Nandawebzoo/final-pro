@@ -10,7 +10,7 @@ function ProfilePage() {
 
   return (
     <>
-      <Container>
+      <Container className="container-profile">
         <div className="profile-picture">
           <img
             alt="Profile Picture"

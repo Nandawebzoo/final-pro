@@ -68,12 +68,11 @@
   }
   .profile-user {
     margin-top: 0;
+    width: 24px;
+    height: 24px;
   }
   .sign-in-btn {
     font-size: 50%;
-    width: 70%;
-    height: 50%;
-    margin-top: 10px;
   }
   .btn-profile-user {
     padding: 4px;
