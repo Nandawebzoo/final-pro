@@ -8,6 +8,11 @@
     justify-content: flex-end;
 }
 
+.add-activity-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .tab-admin {
     padding: 16px 16px 0 16px;
     background-color: #063784;
@@ -25,4 +30,10 @@
 
 .category-edit-btn {
     gap: 1rem;
+}
+
+@media (max-width: 450px) {
+    .admin {
+        padding: 0;
+    }
 }

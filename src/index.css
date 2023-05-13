@@ -6,6 +6,8 @@
   align-items: center;
   padding: 12px 0;
   background-color: #063784;
+  position: relative;
+  z-index: 999;
 }
 
 .nav-links {
@@ -56,6 +58,15 @@
 
 .success {
   color: green;
+}
+
+.trafix-img {
+  width: 60px;
+  height: 40px;
+}
+
+.btn-add-activity {
+  justify-content: right;
 }
 
 /* Mobile Phone */
