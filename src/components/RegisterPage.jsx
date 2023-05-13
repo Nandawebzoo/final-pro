@@ -123,7 +123,7 @@ function RegisterPage() {
               </Form.Control.Feedback>
             )}
           </InputGroup>
-          <Form.Label htmlFor="passwordRepeat">Password Repeat</Form.Label>
+          <Form.Label htmlFor="passwordRepeat">Repeat Password </Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               required
