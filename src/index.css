@@ -88,4 +88,8 @@
   .btn-profile-user {
     padding: 4px;
   }
+
+  .hide-sx {
+    display: none !important;
+  }
 }

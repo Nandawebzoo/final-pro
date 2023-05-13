@@ -56,11 +56,11 @@ function AdminActivities() {
           <tr>
             <th>#</th>
             <th>Title</th>
-            <th className="d-none">Image</th>
-            <th className="d-none">Category</th>
-            <th className="d-none">Price</th>
-            <th className="d-none">Rating</th>
-            <th className="d-none">City</th>
+            <th className="hide-sx">Image</th>
+            <th className="hide-sx">Category</th>
+            <th className="hide-sx">Price</th>
+            <th className="hide-sx">Rating</th>
+            <th className="hide-sx">City</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -70,13 +70,17 @@ function AdminActivities() {
             <tr key={item.id}>
               <td>{index + 1}</td>
               <td>{item.title}</td>
-              <td className="d-none">
-                <img src={item.imageUrls[0]} style={{ width: 100 }} />
+              <td className="hide-sx">
+                <img
+                  className="img-admin"
+                  src={item.imageUrls[0]}
+                  style={{ width: 100 }}
+                />
               </td>
-              <td className="d-none">{item.category?.name}</td>
-              <td className="d-none">{item.price}</td>
-              <td className="d-none">{item.rating}</td>
-              <td className="d-none">{item.city}</td>
+              <td className="hide-sx">{item.category?.name}</td>
+              <td className="hide-sx">{item.price}</td>
+              <td className="hide-sx">{item.rating}</td>
+              <td className="hide-sx">{item.city}</td>
               <td className="activity-edit-btn">
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <Button variant="warning" onClick={() => edit(item)}>

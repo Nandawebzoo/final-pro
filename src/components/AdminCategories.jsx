@@ -56,7 +56,7 @@ function AdminCategories() {
           <tr>
             <th>#</th>
             <th>Name</th>
-            <th className="d-none">Image</th>
+            <th className="hide-sx">Image</th>
             <th style={{ gap: "1rem" }}>Actions</th>
           </tr>
         </thead>
@@ -66,7 +66,7 @@ function AdminCategories() {
             <tr key={item.id}>
               <td>{index + 1}</td>
               <td>{item.name}</td>
-              <td className="d-none">
+              <td className="hide-sx">
                 <img src={item.imageUrl} style={{ width: 100 }} />
               </td>
               <td>
