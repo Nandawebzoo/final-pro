@@ -4,6 +4,7 @@ import AdminCategories from "../components/AdminCategories";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import AdminActivities from "../components/AdminActivities";
+import AdminPromos from "../components/AdminPromos";
 
 function Admin() {
   return (
@@ -16,6 +17,9 @@ function Admin() {
           </Tab>
           <Tab eventKey="activity" title="Activities">
             <AdminActivities />
+          </Tab>
+          <Tab eventKey="promo" title="Promos">
+            <AdminPromos />
           </Tab>
         </Tabs>
       </div>

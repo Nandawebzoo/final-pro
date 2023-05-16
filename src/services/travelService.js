@@ -108,6 +108,32 @@ const updateActivity = async (activity, token) => {
   );
 };
 
+const updatePromo = async (promo, token) => {
+  await axios.post(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/update-promo/${promo.id}`,
+    promo,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+const getPromos = async () => {
+  const response = await axios.get(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/promos`,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+      },
+    }
+  );
+
+  return response.data.data;
+};
+
 const deleteActivity = async (activityId, token) => {
   await axios.delete(
     `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/delete-activity/${activityId}`,
@@ -120,14 +146,43 @@ const deleteActivity = async (activityId, token) => {
   );
 };
 
+const addPromo = async (promo, token) => {
+  await axios.post(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/create-promo`,
+    promo,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+const deletePromo = async (promoId, token) => {
+  await axios.delete(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/delete-promo/${promoId}`,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 export const travelService = {
   uploadImage,
-  updateCategory,
   addCategory,
-  deleteCategory,
+  createActivity,
+  addPromo,
   getCategories,
   getActivities,
-  createActivity,
+  getPromos,
+  updateCategory,
   updateActivity,
+  updatePromo,
+  deleteCategory,
   deleteActivity,
+  deletePromo,
 };

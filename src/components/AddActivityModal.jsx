@@ -6,17 +6,16 @@ import { SessionContext } from "../App";
 import { travelService } from "../services/travelService";
 
 function AddActivityModal({ show, onHide }) {
-  const [categories, setCategories] = useState([]); // There is useState to store categories array
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    // Use useEffect to get data from the API
     const fetchCategories = async () => {
       const categories = await travelService.getCategories();
 
-      setCategories(categories); // set the data and store it in the state
+      setCategories(categories);
     };
 
-    fetchCategories(); // Execute or run the function
+    fetchCategories();
   }, []);
 
   const session = useContext(SessionContext);
@@ -40,7 +39,6 @@ function AddActivityModal({ show, onHide }) {
         let imageUrl = undefined;
 
         if (values.image) {
-          // There is a new image, need to upload it to get the new url
           imageUrl = await travelService.uploadImage(
             values.image,
             session.token
