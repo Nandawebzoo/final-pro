@@ -13,10 +13,9 @@ const responsive = {
 };
 
 function Promos() {
-  const [promos, setPromos] = useState([]); // There is useState to store promos array
+  const [promos, setPromos] = useState([]);
 
   useEffect(() => {
-    // Use useEffect to get data from the API
     const fetchPromos = async () => {
       const response = await axios.get(
         `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/promos`,
@@ -27,11 +26,11 @@ function Promos() {
         }
       );
 
-      setPromos(response.data.data); // set the data and store it in the state
+      setPromos(response.data.data);
     };
 
-    fetchPromos(); // Execute or run the function
-  }, []); // Empty array of dependencies means the function will run on the initial render / on component load
+    fetchPromos();
+  }, []);
 
   const items = promos.map((item) => (
     <Card key={item.id} className="item-promo">
