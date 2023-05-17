@@ -14,11 +14,9 @@ function EditModal({ show, onHide, category }) {
     },
     onSubmit: async (values) => {
       try {
-        // original imageUrl
         let imageUrl = category.imageUrl;
 
         if (values.image) {
-          // There is a new image, need to upload it to get the new url
           imageUrl = await travelService.uploadImage(
             values.image,
             session.token
@@ -44,7 +42,6 @@ function EditModal({ show, onHide, category }) {
     if (category) {
       formik.setValues({ name: category.name, imageUrl: category.imageUrl });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
   return (

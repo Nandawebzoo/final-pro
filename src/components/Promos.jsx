@@ -38,10 +38,7 @@ function Promos() {
       <Card.Img className="promo-poster" variant="top" src={item.imageUrl} />
       <Card.Body>
         <Card.Title>{item.title}</Card.Title>
-        <Card.Text className="promo-description">
-          Some quick example text to build on the card title and make up the
-          bulk of the cards content.
-        </Card.Text>
+        <Card.Text className="promo-description">{item.description}</Card.Text>
         <h5 className="code-promo">Code: {item.promo_code}</h5>
         <Button variant="primary">Get Promo</Button>
       </Card.Body>

@@ -28,7 +28,9 @@ function EditPromoModal({ show, onHide, promo }) {
         }
 
         const newPromo = {
+          id: promo.id,
           title: values.title,
+          imageUrl: imageUrl,
           description: values.description,
           terms_condition: values.terms_condition,
           promo_code: values.promo_code,
@@ -51,7 +53,15 @@ function EditPromoModal({ show, onHide, promo }) {
 
   useEffect(() => {
     if (promo) {
-      formik.setValues({ title: promo.title, imageUrl: promo.imageUrl });
+      formik.setValues({
+        title: promo.title,
+        imageUrl: promo.imageUrl,
+        description: promo.description,
+        terms_condition: promo.terms_condition,
+        promo_code: promo.promo_code,
+        promo_discount_price: promo.promo_discount_price,
+        minimum_claim_price: promo.minimum_claim_price,
+      });
     }
   }, [promo]);
 
@@ -104,23 +114,23 @@ function EditPromoModal({ show, onHide, promo }) {
               value={formik.values.terms_condition}
             />
           </InputGroup>
-          <Form.Label htmlFor="promo">Promo Code</Form.Label>
+          <Form.Label htmlFor="promo_code">Promo Code</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type=""
-              id="promo"
+              id="promo_code"
               onChange={formik.handleChange}
-              value={formik.values.promo}
+              value={formik.values.promo_code}
             />
           </InputGroup>
 
-          <Form.Label htmlFor="price_discount">Price Discount</Form.Label>
+          <Form.Label htmlFor="promo_discount_price">Price Discount</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type="number"
-              id="price_discount"
+              id="promo_discount_price"
               onChange={formik.handleChange}
-              value={formik.values.price_discount}
+              value={formik.values.promo_discount_price}
             />
           </InputGroup>
 

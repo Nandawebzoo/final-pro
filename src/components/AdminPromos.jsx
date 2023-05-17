@@ -112,7 +112,7 @@ function AdminPromos() {
         onHide={(promoId) => {
           if (promoId) {
             const newPromos = promos.filter((promo) => promo.id !== promoId);
-            setPromo(newPromo);
+            setPromos(newPromos);
           }
 
           setDeletePromo(null);

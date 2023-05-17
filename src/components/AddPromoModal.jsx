@@ -109,13 +109,13 @@ function AddPromoModal({ show, onHide }) {
               value={formik.values.terms_condition}
             />
           </InputGroup>
-          <Form.Label htmlFor="promo">Promo Code</Form.Label>
+          <Form.Label htmlFor="promo_code">Promo Code</Form.Label>
           <InputGroup className="mb-3">
             <Form.Control
               type=""
-              id="promo"
+              id="promo_code"
               onChange={formik.handleChange}
-              value={formik.values.promo}
+              value={formik.values.promo_code}
             />
           </InputGroup>
 
