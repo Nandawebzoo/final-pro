@@ -10,6 +10,11 @@
   z-index: 999;
 }
 
+.logo-img {
+  width: 60px;
+  height: 30px;
+}
+
 .nav-links {
   display: flex;
 }
@@ -60,9 +65,10 @@
   color: green;
 }
 
-.trafix-img {
-  width: 60px;
-  height: 40px;
+.logo-img {
+  width: 120px;
+  height: 70px;
+  padding: 0;
 }
 
 .btn-add-activity {

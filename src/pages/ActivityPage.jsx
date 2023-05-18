@@ -27,21 +27,28 @@ function ActivityPage() {
 
   return (
     <>
-      <section className="container-activity-page">
-        <img alt="Activity Picture" src={activity?.imageUrls[0]} />
-        <div className="article2">
-          <h1>{activity?.title}</h1>
-          <div>
-            <h4>Rating: {activity?.rating}</h4>
-            <h4>Total Reviews: {activity?.total_reviews}</h4>
+      <div>
+        <section className="container-activity-page">
+          <img alt="Activity Picture" src={activity?.imageUrls[0]} />
+          <div className="article2">
+            <h1>{activity?.title}</h1>
+            <div>
+              <h4>Rating: {activity?.rating}</h4>
+              <h4>Total Reviews: {activity?.total_reviews}</h4>
+            </div>
+            <div className="prices">
+              <p>{activity?.description}</p>
+              <h4>Price:</h4>
+              <span className="price-discount">
+                IDR {activity?.price_discount}
+              </span>
+              <span className="price-before-discount">
+                IDR {activity?.price}
+              </span>
+            </div>
           </div>
-          <div className="prices">
-            <p>{activity?.description}</p>
-            <span className="price-discount">{activity?.price_discount}</span>
-            <span className="price-before-discount">{activity?.price}</span>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }

@@ -20,7 +20,9 @@ function Navbar() {
     <>
       <Nav className="navbar-beg">
         <div>
-          <Nav.Item>✈️</Nav.Item>
+          <Nav.Item>
+            <img src="fix.png" alt="trafix" className="logo-img" />
+          </Nav.Item>
         </div>
         <div className="nav-links">
           <Nav.Item>

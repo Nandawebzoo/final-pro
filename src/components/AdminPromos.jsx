@@ -72,7 +72,7 @@ function AdminPromos() {
                 <img
                   src={item.imageUrl}
                   className="img-admin"
-                  style={{ width: "80px", height: "50px" }}
+                  style={{ width: "120px", height: "80px" }}
                 />
               </td>
               <td className="hide-sx">{item.promo_code}</td>
