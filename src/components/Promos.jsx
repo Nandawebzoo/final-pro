@@ -39,7 +39,12 @@ function Promos() {
         <Card.Title>{item.title}</Card.Title>
         <Card.Text className="promo-description">{item.description}</Card.Text>
         <h5 className="code-promo">Code: {item.promo_code}</h5>
-        <Button variant="primary">Get Promo</Button>
+        <Button
+          variant="primary"
+          onClick={() => navigate("/promos/" + promos.id)}
+        >
+          Get Promo
+        </Button>
       </Card.Body>
     </Card>
   ));
