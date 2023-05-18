@@ -5,6 +5,7 @@ import axios from "axios";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./promos.css";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const responsive = {
   0: { items: 1 },
@@ -14,23 +15,48 @@ const responsive = {
 
 function Promos() {
   const [promos, setPromos] = useState([]);
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     const fetchPromos = async () => {
-      const response = await axios.get(
-        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/promos`,
-        {
-          headers: {
-            apiKey: import.meta.env.VITE_API_KEY,
-          },
-        }
-      );
+      const promoId = searchParams.get("promo");
 
-      setPromos(response.data.data);
+      if (promoId !== null) {
+        try {
+          const response = await axios.get(
+            `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/promo/${promoId}`,
+            {
+              headers: {
+                apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+              },
+            }
+          );
+
+          setPromos([response.data.data]);
+        } catch (error) {
+          console.error("Error fetching promo:", error);
+        }
+      } else {
+        try {
+          const response = await axios.get(
+            "https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/promos",
+            {
+              headers: {
+                apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+              },
+            }
+          );
+
+          setPromos(response.data.data);
+        } catch (error) {
+          console.error("Error fetching promos:", error);
+        }
+      }
     };
 
     fetchPromos();
-  }, []);
+  }, [searchParams]);
 
   const items = promos.map((item) => (
     <Card key={item.id} className="item-promo">

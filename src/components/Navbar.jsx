@@ -21,7 +21,7 @@ function Navbar() {
       <Nav className="navbar-beg">
         <div>
           <Nav.Item>
-            <img src="/public/img/fix.png" alt="trafix" className="logo-img" />
+            <img src="/img/fix.png" alt="trafix" className="logo-img" />
           </Nav.Item>
         </div>
         <div className="nav-links">
