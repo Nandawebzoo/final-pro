@@ -70,12 +70,11 @@ function AdminPromos() {
               <td>{item.title}</td>
               <td className="hide-sx">
                 <img
+                  src={item.imageUrl}
                   className="img-admin"
-                  src={item.imageUrl[0]}
-                  style={{ width: 100 }}
+                  style={{ width: "80px", height: "50px" }}
                 />
               </td>
-              {/* <td>{item.description}</td> */}
               <td className="hide-sx">{item.promo_code}</td>
               <td className="hide-sx">{item.promo_discount_price}</td>
               <td className="hide-sx">{item.minimum_claim_price}</td>
