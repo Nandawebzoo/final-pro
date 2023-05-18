@@ -14,6 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import RegisterPage from "./components/RegisterPage";
 import ProfilePage from "./pages/PorfilePage";
 import ActivityPage from "./pages/ActivityPage";
+import PromoPage from "./pages/PromoPage";
 
 export const SessionContext = createContext(null);
 
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
         <Route path="register" element={<RegisterPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="activities/:activityId" element={<ActivityPage />} />
+        <Route path="promos/:promoId" element={<PromoPage />} />
       </Route>
     </>
   )

@@ -14,10 +14,7 @@ const registerSchema = yup.object().shape({
     .max(50, "Too Long!")
     .required("Required"),
   email: yup.string().email("Invalid email").required("Required"),
-  password: yup
-    .string()
-    .required("Required")
-    .min(8, "Your password is too short."),
+  password: yup.string().min(8, "Your password is too short."),
   passwordRepeat: yup
     .string()
     .required("Required")
