@@ -81,7 +81,7 @@
     font-size: 60%;
   }
   .navbar-beg {
-    gap: 20px;
+    padding: 0;
   }
   .profile-user {
     margin-top: 0;
@@ -97,5 +97,10 @@
 
   .hide-sx {
     display: none !important;
+  }
+
+  .nav-actions {
+    display: flex;
+    gap: 0.3rem;
   }
 }
