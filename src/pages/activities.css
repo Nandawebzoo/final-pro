@@ -57,7 +57,59 @@
 }
 
 @media (max-width: 450px) {
+    .activity {
+        background-color: #063784;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 100vh;
+    }
     .activity-text h1 {
         font-size: 40px;
+    }
+    .activity .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .activity-text {
+        color: #fff;
+        margin-top: 60px;
+    }
+    .activity-text h1 {
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .activity-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .activity-content {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .activity-find {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        padding: 10px;
+        height: 190px;
+        gap: 0.5rem;
+        border-radius: 8px;
+    }
+
+    .activity-img {
+        width: 50%;
+        height: 85px;
+    }
+    .card.title h5 {
+        font-size: 37px;
     }
 }
