@@ -49,10 +49,10 @@ function Activities() {
         }
       );
 
-      setCategories(response.data.data); // set the data and store it in the state
+      setCategories(response.data.data);
     };
 
-    fetchCategories(); // Execute or run the function
+    fetchCategories();
   }, []);
 
   function redirect() {

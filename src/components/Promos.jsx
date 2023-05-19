@@ -67,9 +67,9 @@ function Promos() {
         <h5 className="code-promo">Code: {item.promo_code}</h5>
         <Button
           variant="primary"
-          onClick={() => navigate("/promos/" + promos.id)}
+          onClick={() => navigate("/promos/" + item.id)}
         >
-          Get Promo
+          Promo Details
         </Button>
       </Card.Body>
     </Card>

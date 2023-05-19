@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Button, Container, Form, InputGroup, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { SessionContext } from "../App";
 import EditProfileModal from "../components/EditProfileModal";
 import Card from "react-bootstrap/Card";

@@ -1,0 +1,71 @@
+.container-promo-page {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    height: 640px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
+}
+
+.container-promo-page img {
+    width: 420px;
+    height: 350px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.article2 {
+    flex: 1;
+    width: 50%;
+}
+
+.article2 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333; /* Tambahkan warna teks */
+}
+
+.prices {
+    display: flex;
+    align-items: left;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.prices p {
+    flex: 1;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.price-discount {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3817be;
+    margin-right: 10px;
+}
+
+.price-before-discount {
+    font-size: 16px;
+    text-decoration: line-through;
+    color: #ff0000;
+    margin-right: 10px;
+}
+
+.btn-activity-page {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-activity-page:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Tambahkan efek hover */
+}
