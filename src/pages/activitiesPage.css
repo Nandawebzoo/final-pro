@@ -24,7 +24,7 @@
 .article2 h2 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #333; /* Tambahkan warna teks */
+    color: #333;
 }
 
 .prices {
@@ -67,5 +67,50 @@
 
 .btn-activity-page:hover {
     background-color: #0056b3;
-    transform: scale(1.05); /* Tambahkan efek hover */
+    transform: scale(1.05);
+}
+
+@media (max-width: 450px) {
+    .container-activity-page {
+        height: auto;
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .container-activity-page img {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .article2 {
+        width: 100%;
+    }
+
+    .article2 h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .prices p {
+        font-size: 14px;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .price-discount {
+        font-size: 16px;
+        margin-right: 0;
+    }
+
+    .price-before-discount {
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .btn-activity-page {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
 }
