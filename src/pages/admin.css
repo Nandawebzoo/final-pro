@@ -13,6 +13,16 @@
     justify-content: flex-end;
 }
 
+.add-promo-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-user-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .tab-admin {
     padding: 16px 16px 0 16px;
     background-color: #063784;

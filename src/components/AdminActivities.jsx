@@ -13,7 +13,6 @@ function AdminActivities() {
   const [deleteActivity, setDeleteActivity] = useState(null);
 
   useEffect(() => {
-    // Use useEffect to get data from the API
     fetchActivities();
   }, []);
 
@@ -34,7 +33,6 @@ function AdminActivities() {
 
   const onHideActivity = (activity) => {
     if (activity) {
-      // update it on the categories array
       const index = activities.findIndex((x) => x.id === activity.id);
 
       const newActivities = [...activities];
@@ -116,7 +114,6 @@ function AdminActivities() {
         show={deleteActivity !== null}
         onHide={(activityId) => {
           if (activityId) {
-            // Remove from category list
             const newActivities = activities.filter(
               (activity) => activity.id !== activityId
             );

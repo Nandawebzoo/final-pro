@@ -55,9 +55,9 @@ function AdminPromos() {
             <th>#</th>
             <th>Title</th>
             <th className="hide-sx">Image</th>
-            {/* <th className="hide-sx">Description</th> */}
+            <th className="hide-sx">Description</th>
             <th className="hide-sx">Promo Code</th>
-            <th className="hide-sx">Promo Discount Price</th>
+            <th className="hide-sx">Discount Price</th>
             <th className="hide-sx">Minimun Claim Price</th>
             <th>Actions</th>
           </tr>
@@ -75,6 +75,7 @@ function AdminPromos() {
                   style={{ width: "120px", height: "80px" }}
                 />
               </td>
+              <td className="hide-sx">{item.description}</td>
               <td className="hide-sx">{item.promo_code}</td>
               <td className="hide-sx">{item.promo_discount_price}</td>
               <td className="hide-sx">{item.minimum_claim_price}</td>

@@ -159,9 +159,34 @@ const addPromo = async (promo, token) => {
   );
 };
 
-const deletePromo = async (promoId, token) => {
+const deletePromo = async (token) => {
   await axios.delete(
     `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/delete-promo/${promoId}`,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+const getAllUsers = async (token) => {
+  await axios.get(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/all-user`,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+const updateRoleUser = async (user, token) => {
+  await axios.post(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/update-user/${user.id}`,
+    user,
     {
       headers: {
         apiKey: import.meta.env.VITE_API_KEY,
@@ -185,4 +210,6 @@ export const travelService = {
   deleteCategory,
   deleteActivity,
   deletePromo,
+  getAllUsers,
+  updateRoleUser,
 };
