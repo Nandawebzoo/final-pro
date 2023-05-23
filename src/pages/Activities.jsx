@@ -34,11 +34,10 @@ function Activities() {
       setSelectedCategory(category || "");
     };
 
-    fetchActivities(); // Execute or run the function
+    fetchActivities();
   }, [searchParams]);
 
   useEffect(() => {
-    // Use useEffect to get data from the API
     const fetchCategories = async () => {
       const response = await axios.get(
         `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/categories`,
