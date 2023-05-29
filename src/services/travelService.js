@@ -171,8 +171,8 @@ const deletePromo = async (token) => {
   );
 };
 
-const getAllUsers = async (token) => {
-  await axios.get(
+const getUsers = async (token) => {
+  const response = await axios.get(
     `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/all-user`,
     {
       headers: {
@@ -181,12 +181,12 @@ const getAllUsers = async (token) => {
       },
     }
   );
+  return response.data.data;
 };
 
 const updateRoleUser = async (user, token) => {
   await axios.post(
     `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/update-user/${user.id}`,
-    user,
     {
       headers: {
         apiKey: import.meta.env.VITE_API_KEY,
@@ -210,6 +210,6 @@ export const travelService = {
   deleteCategory,
   deleteActivity,
   deletePromo,
-  getAllUsers,
+  getUsers,
   updateRoleUser,
 };
