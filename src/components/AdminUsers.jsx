@@ -3,6 +3,7 @@ import { Table, Button } from "react-bootstrap";
 import { travelService } from "../services/travelService";
 import { SessionContext } from "../App";
 import AddUserModal from "../components/AddUserModal";
+import EditUserModal from "../components/EditUserModal";
 
 function AdminUsers() {
   const [users, setUsers] = useState([]);
@@ -101,13 +102,13 @@ function AdminUsers() {
           setShowAddUserModal(false);
         }}
       />
-      {/* <EditUserModal
+      <EditUserModal
         show={showModal}
-        onHide={(promo) => onHidePromo(promo)}
-        promo={editPromo}
+        onHide={(user) => onHideUser(user)}
+        user={editUser}
       />
-      
-      <DeleteUserModal
+
+      {/*<DeleteUserModal
         show={deletePromo !== null}
         onHide={(promoId) => {
           if (promoId) {
