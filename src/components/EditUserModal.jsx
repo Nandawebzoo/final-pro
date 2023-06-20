@@ -155,4 +155,4 @@ function EditUserModal({ show, onHide }) {
   );
 }
 
-export default EdiUserModal;
+export default EditUserModal;
