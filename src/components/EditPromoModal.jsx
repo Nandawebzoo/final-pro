@@ -68,7 +68,7 @@ function EditPromoModal({ show, onHide, promo }) {
   return (
     <Modal show={show} onHide={() => onHide()}>
       <Modal.Header closeButton>
-        <Modal.Title>Add Promo</Modal.Title>
+        <Modal.Title>Edit Promo</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>

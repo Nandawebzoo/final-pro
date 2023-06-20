@@ -108,6 +108,19 @@ const updateActivity = async (activity, token) => {
   );
 };
 
+const updateRole = async (role, token) => {
+  await axios.post(
+    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/update-user-role/${role.id}`,
+    role,
+    {
+      headers: {
+        apiKey: import.meta.env.VITE_API_KEY,
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 const updatePromo = async (promo, token) => {
   await axios.post(
     `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/update-promo/${promo.id}`,
@@ -184,18 +197,6 @@ const getUsers = async (token) => {
   return response.data.data;
 };
 
-const updateRoleUser = async (user, token) => {
-  await axios.post(
-    `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/update-user/${user.id}`,
-    {
-      headers: {
-        apiKey: import.meta.env.VITE_API_KEY,
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-};
-
 export const travelService = {
   uploadImage,
   addCategory,
@@ -211,5 +212,5 @@ export const travelService = {
   deleteActivity,
   deletePromo,
   getUsers,
-  updateRoleUser,
+  updateRole,
 };

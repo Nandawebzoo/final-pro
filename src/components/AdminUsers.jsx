@@ -2,15 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import { Table, Button } from "react-bootstrap";
 import { travelService } from "../services/travelService";
 import { SessionContext } from "../App";
-import AddUserModal from "../components/AddUserModal";
 import EditUserModal from "../components/EditUserModal";
 
 function AdminUsers() {
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editUser, setEditUser] = useState(null);
-  const [showAddUserModal, setShowAddUserModal] = useState(false);
-  const [deleteUser, setDeleteUser] = useState(null);
   const session = useContext(SessionContext);
 
   useEffect(() => {
@@ -58,8 +55,8 @@ function AdminUsers() {
             <th>Name</th>
             <th className="hide-sx">Image</th>
             <th className="hide-sx">Email</th>
-            <th className="hide-sx">Role</th>
             <th className="hide-sx">Phone Number</th>
+            <th className="hide-sx">Role</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -77,12 +74,12 @@ function AdminUsers() {
                 />
               </td>
               <td className="hide-sx">{item.email}</td>
-              <td className="hide-sx">{item.role}</td>
               <td className="hide-sx">{item.phoneNumber}</td>
+              <td className="hide-sx">{item.role}</td>
               <td className="user-edit-btn">
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <Button variant="warning" onClick={() => edit(item)}>
-                    Edit
+                    Edit Role
                   </Button>
                   <Button variant="danger" onClick={() => setDeleteUser(item)}>
                     Delete
@@ -93,33 +90,12 @@ function AdminUsers() {
           ))}
         </tbody>
       </Table>
-      <AddUserModal
-        show={showAddUserModal}
-        onHide={(success) => {
-          if (success === true) {
-            fetchUsers(); // update the list
-          }
-          setShowAddUserModal(false);
-        }}
-      />
+
       <EditUserModal
         show={showModal}
         onHide={(user) => onHideUser(user)}
         user={editUser}
       />
-
-      {/*<DeleteUserModal
-        show={deletePromo !== null}
-        onHide={(promoId) => {
-          if (promoId) {
-            const newPromos = promos.filter((promo) => promo.id !== promoId);
-            setPromos(newPromos);
-          }
-
-          setDeletePromo(null);
-        }}
-        promo={deletePromo}
-      /> */}
     </>
   );
 }

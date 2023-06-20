@@ -7,7 +7,7 @@ import { travelService } from "../services/travelService";
 import axios from "axios";
 import { Formik } from "formik";
 
-function EditUserModal({ show, onHide }) {
+function EditUserModal({ show, onHide, user }) {
   const session = useContext(SessionContext);
   const formik = useFormik({
     initialValues: {
@@ -34,8 +34,6 @@ function EditUserModal({ show, onHide }) {
             name: values.name,
             profilePictureUrl: imageUrl,
             email: values.email,
-            password: values.password,
-            passwordRepeat: values.passwordRepeat,
             phoneNumber: values.phoneNumber,
           },
           {
@@ -49,6 +47,17 @@ function EditUserModal({ show, onHide }) {
       } catch (error) {}
     },
   });
+
+  useEffect(() => {
+    if (user) {
+      formik.setValues({
+        name: user.name,
+        email: user.email,
+        imageUrl: user.imageUrl,
+        phoneNumber: user.phoneNumber,
+      });
+    }
+  }, [user]);
 
   return (
     <Modal show={show} onHide={() => onHide()}>
