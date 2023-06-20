@@ -17,7 +17,6 @@ function EditUserModal({ show, onHide }) {
       passwordRepeat: "",
       phoneNumber: "",
     },
-    validationSchema: registerSchema,
     onSubmit: async (values) => {
       try {
         let imageUrl = session.userDetails.profilePictureUrl;
