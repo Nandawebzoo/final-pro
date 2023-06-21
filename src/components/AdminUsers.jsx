@@ -81,9 +81,6 @@ function AdminUsers() {
                   <Button variant="warning" onClick={() => edit(item)}>
                     Edit Role
                   </Button>
-                  <Button variant="danger" onClick={() => setDeleteUser(item)}>
-                    Delete
-                  </Button>
                 </div>
               </td>
             </tr>
